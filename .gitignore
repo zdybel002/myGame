@@ -1,0 +1,22 @@
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+
+# Pliki Visual Studio
+.vs/
+.vsconfig
+*.csproj
+*.sln
+*.slnx
+*.suo
+*.user
+*.userosscache
+*.sln.docuser
+
+# Systemowe pliki tymczasowe
+.DS_Store
+Thumbs.db
