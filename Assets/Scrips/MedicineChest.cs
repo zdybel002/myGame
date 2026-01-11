@@ -11,7 +11,7 @@ public class MedicineChest : MonoBehaviour
         {
             Debug.Log("Collision!");
             Health health = col.gameObject.GetComponent<Health>();
-            health.SetHealth(bonusHealth);
+            health.SetHealth(bonusHealth);  
             Destroy(gameObject);
         }
     }

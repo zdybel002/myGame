@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public class Pllayer : MonoBehaviour 
-{
+using UnityEngine;
 
+public class Pllayer : MonoBehaviour
+{
     public float speed = 6f;
     public float force = 5f;
     public Rigidbody2D rigidbody;
@@ -12,35 +13,81 @@ public class Pllayer : MonoBehaviour
 
     public GraundDetaction graundDetaction;
 
-    public Vector3 direction;
+    private Vector3 direction;
+    public Animator animator;
+    public SpriteRenderer spriteRenderer;
+    private bool isJumping;
 
-    void Update() {
-        
-        
-        if (Input.GetKey(KeyCode.A))
+    // 1. Nowa zmienna pomocnicza
+    private bool jumpRequest = false;
+
+    // 2. Dodajemy Update tylko do ³apania klawisza
+    void Update()
+    {
+        // £apiemy wciœniêcie spacji w KA¯DEJ klatce
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            transform.Translate(Vector2.left * Time.deltaTime * speed);
-           
-
+            jumpRequest = true;
         }
+    }
+
+    void FixedUpdate()
+    {
+
+        animator.SetBool("isGrounded", graundDetaction.isGrounded);
+
+        // Jesli nie skaczemy i nie jestesmy na ziemi UPADAMY
+        if (!isJumping && !graundDetaction.isGrounded)
+            animator.SetTrigger("StartFall");
+
+        // Resetujemy flagê skoku, jeœli dotknêliœmy ziemi
+        if (graundDetaction.isGrounded)
+            isJumping = false;
+
+        direction = Vector3.zero;
+
+        // Ma³a poprawka A+D (¿eby postaæ sta³a, gdy wciœniesz oba)
+        if (Input.GetKey(KeyCode.A))
+            direction += Vector3.left;
 
         if (Input.GetKey(KeyCode.D))
+            direction += Vector3.right;
+
+        direction *= speed;
+
+        // Poprawka sk³adni dla Unity 6 (linearVelocity.y)
+        direction.y = rigidbody.linearVelocity.y;
+        rigidbody.linearVelocity = direction;
+
+        // 3. Sprawdzamy nasz¹ zmienn¹ jumpRequest zamiast Input.GetKeyDown
+        if (jumpRequest)
         {
-            transform.Translate(Vector2.right * Time.deltaTime * speed);
+            if (graundDetaction.isGrounded)
+            {
+                // Zerujemy prêdkoœæ Y przed skokiem, ¿eby skok by³ zawsze równy
+                rigidbody.linearVelocity = new Vector2(rigidbody.linearVelocity.x, 0);
 
-
+                rigidbody.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+                animator.SetTrigger("StartJump");
+                isJumping = true;
+            }
+            // "Zu¿ywamy" proœbê o skok (¿eby nie skaka³ w nieskoñczonoœæ)
+            jumpRequest = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && graundDetaction.isGrounded){
-            rigidbody.AddForce(Vector2.up * force, ForceMode2D.Impulse);
-        }
+        // Zmiana kierunku chodzenia    
+        if (direction.x > 0)
+            spriteRenderer.flipX = false;
+        if (direction.x < 0)
+            spriteRenderer.flipX = true;
+
+        animator.SetFloat("Speed", Mathf.Abs(direction.x));
 
         CheckFall();
     }
 
     void CheckFall()
     {
-
         if (transform.position.y < minimalHeight && isCheatMode)
         {
             rigidbody.linearVelocity = Vector2.zero;
