@@ -21,6 +21,7 @@ public class Health : MonoBehaviour
     public void SetHealth(int bonusHealth)
     {
         this.health += bonusHealth;
+        Debug.Log("Health" +  health);
     }
 
     

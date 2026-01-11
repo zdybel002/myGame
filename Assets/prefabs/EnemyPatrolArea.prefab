@@ -152,12 +152,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: 6be5298d61bea014b8172621266ae6c4, type: 3}
+  m_Sprite: {fileID: -712631045867808456, guid: d4429493588b4eb4092129e8f9644f57, type: 3}
   m_Color: {r: 0.86415094, g: 0.15489489, b: 0.15489489, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.8828125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -240,6 +240,7 @@ MonoBehaviour:
   leftBorder: {fileID: 2557931193256501837}
   rightBorder: {fileID: 6231988728864512946}
   rigitbody: {fileID: 4987627033614771266}
+  graundDetaction: {fileID: 3785565817761330966}
   isRightDirection: 0
   speed: 1
 --- !u!114 &4559321083311415615

@@ -12,6 +12,8 @@ public class Pllayer : MonoBehaviour
 
     public GraundDetaction graundDetaction;
 
+    public Vector3 direction;
+
     void Update() {
         
         
@@ -33,6 +35,11 @@ public class Pllayer : MonoBehaviour
             rigidbody.AddForce(Vector2.up * force, ForceMode2D.Impulse);
         }
 
+        CheckFall();
+    }
+
+    void CheckFall()
+    {
 
         if (transform.position.y < minimalHeight && isCheatMode)
         {
