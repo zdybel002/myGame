@@ -14,8 +14,6 @@ GameObject:
   - component: {fileID: 1848843333256898875}
   - component: {fileID: 2526221047662471240}
   - component: {fileID: 1241260180211626782}
-  - component: {fileID: 2221597065199708975}
-  - component: {fileID: 9087522075297485040}
   - component: {fileID: 6440384224048985529}
   - component: {fileID: 3448028533543684780}
   m_Layer: 0
@@ -165,7 +163,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.786, y: 1.9965764}
+    oldSize: {x: 1.9844444, y: 2.2184181}
     newSize: {x: 1.786, y: 1.9965764}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -185,12 +183,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b24da708c223a64c8707a4e15365652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pllayer
-  speed: 6
+  speed: 8
   force: 10
   rigidbody: {fileID: 3804241267093649955}
   isCheatMode: 1
   minimalHeight: -50
-  graundDetaction: {fileID: 9087522075297485040}
+  graundDetaction: {fileID: 0}
   animator: {fileID: 3448028533543684780}
   spriteRenderer: {fileID: 5584484809351034487}
 --- !u!114 &1241260180211626782
@@ -206,33 +204,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   health: 100
---- !u!114 &2221597065199708975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 539023174209043954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a64c8664d795a046882fc6d15efbd27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ColisionDamage
-  damage: 10
-  collisionTag: Enemy
---- !u!114 &9087522075297485040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 539023174209043954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62621a2d8dc755e4a8f69ddf033cfeac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GraundDetaction
-  isGrounded: 0
 --- !u!114 &6440384224048985529
 MonoBehaviour:
   m_ObjectHideFlags: 0

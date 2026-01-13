@@ -12,8 +12,7 @@ public class EnemyPAtrol : MonoBehaviour
     public bool isRightDirection;
 
     public float speed = 1;
-
-
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
   
     private void Update()
@@ -36,5 +35,11 @@ public class EnemyPAtrol : MonoBehaviour
                 isRightDirection = !isRightDirection;
             }
         }
+
+        if (rigitbody.linearVelocity.x > 0)
+            spriteRenderer.flipX = false;
+        if (rigitbody.linearVelocity.x < 0)
+            spriteRenderer.flipX = true;
+
     }
 }

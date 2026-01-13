@@ -76,11 +76,12 @@ GameObject:
   - component: {fileID: 8515298848706582174}
   - component: {fileID: 2873356218558570602}
   - component: {fileID: 4987627033614771266}
-  - component: {fileID: 3227420029309020201}
   - component: {fileID: 4205615997953549834}
   - component: {fileID: 4559321083311415615}
   - component: {fileID: 5670823266507661333}
   - component: {fileID: 3785565817761330966}
+  - component: {fileID: 819506366474740379}
+  - component: {fileID: 1661542127187555969}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Enemy
@@ -152,12 +153,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -712631045867808456, guid: d4429493588b4eb4092129e8f9644f57, type: 3}
-  m_Color: {r: 0.86415094, g: 0.15489489, b: 0.15489489, a: 1}
+  m_Sprite: {fileID: 21300000, guid: ba8e2f09d288ffe41ab84ef864861f92, type: 3}
+  m_Color: {r: 0.97735846, g: 0.97735846, b: 0.97735846, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 0.8828125}
+  m_Size: {x: 0.70624995, y: 0.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -189,8 +190,89 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &3227420029309020201
-CircleCollider2D:
+--- !u!114 &4205615997953549834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852531181697284677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad9ffd0616f3e1147a6123ae5fa554e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyPAtrol
+  leftBorder: {fileID: 2557931193256501837}
+  rightBorder: {fileID: 6231988728864512946}
+  rigitbody: {fileID: 4987627033614771266}
+  graundDetaction: {fileID: 3785565817761330966}
+  isRightDirection: 0
+  speed: 1
+  spriteRenderer: {fileID: 2873356218558570602}
+--- !u!114 &4559321083311415615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852531181697284677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6a4835b3dd0204bb6b17416bed3975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  health: 50
+--- !u!114 &5670823266507661333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852531181697284677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a64c8664d795a046882fc6d15efbd27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColisionDamage
+  damage: 5
+  animator: {fileID: 819506366474740379}
+--- !u!114 &3785565817761330966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852531181697284677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62621a2d8dc755e4a8f69ddf033cfeac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GraundDetaction
+  isGrounded: 0
+--- !u!95 &819506366474740379
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852531181697284677}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7418b61235838914bb17c8456514bbb5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!61 &1661542127187555969
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -223,66 +305,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
---- !u!114 &4205615997953549834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4852531181697284677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad9ffd0616f3e1147a6123ae5fa554e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyPAtrol
-  leftBorder: {fileID: 2557931193256501837}
-  rightBorder: {fileID: 6231988728864512946}
-  rigitbody: {fileID: 4987627033614771266}
-  graundDetaction: {fileID: 3785565817761330966}
-  isRightDirection: 0
-  speed: 1
---- !u!114 &4559321083311415615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4852531181697284677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd6a4835b3dd0204bb6b17416bed3975, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Health
-  health: 50
---- !u!114 &5670823266507661333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4852531181697284677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a64c8664d795a046882fc6d15efbd27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ColisionDamage
-  damage: 5
-  collisionTag: Player
---- !u!114 &3785565817761330966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4852531181697284677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62621a2d8dc755e4a8f69ddf033cfeac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GraundDetaction
-  isGrounded: 0
+  m_Offset: {x: -0.03750646, y: 0.049070865}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.3333333, y: 2.3333333}
+    newSize: {x: 0.70624995, y: 0.8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.1633813, y: 2.0156558}
+  m_EdgeRadius: 0
 --- !u!1 &6231988728864512946
 GameObject:
   m_ObjectHideFlags: 0

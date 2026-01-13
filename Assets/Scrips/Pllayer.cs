@@ -1,7 +1,5 @@
 using UnityEngine;
 
-using UnityEngine;
-
 public class Pllayer : MonoBehaviour
 {
     public float speed = 6f;
@@ -20,6 +18,11 @@ public class Pllayer : MonoBehaviour
 
     // 1. Nowa zmienna pomocnicza
     private bool jumpRequest = false;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     // 2. Dodajemy Update tylko do ³apania klawisza
     void Update()

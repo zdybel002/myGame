@@ -4,19 +4,30 @@ public class ColisionDamage : MonoBehaviour
 {
 
     public int damage = 10;
-    public string collisionTag;
+    [SerializeField] private Animator animator;
+    private Health health;
+    private float direction;    
 
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnCollisionStay2D(Collision2D col)
     {
-        //Debug.Log(col.gameObject.name);
-        if(col.gameObject.CompareTag(collisionTag))
+        health = col.gameObject.GetComponent<Health>();
+        if (health != null)
         {
-            Health health = col.gameObject.GetComponent<Health>();
+            direction = (col.transform.position - transform.position).x;
+            animator.SetFloat("Direction", Mathf.Abs(direction));
+        }
+           
+    }
+
+    public void SetDamage()
+    {
+
+        if(health != null)
             health.TakeHit(damage);
 
-        }
-
+        health = null;
+        animator.SetFloat("Direction", 0f);
     }
     
 }
