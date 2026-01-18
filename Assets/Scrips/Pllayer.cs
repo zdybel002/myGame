@@ -19,6 +19,11 @@ public class Pllayer : MonoBehaviour
     // 1. Nowa zmienna pomocnicza
     private bool jumpRequest = false;
 
+
+    [SerializeField] private Health health;
+
+    public Health Health { get { return health; } }
+
     void Start()
     {
         animator = GetComponent<Animator>();

@@ -151,7 +151,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: ba8e2f09d288ffe41ab84ef864861f92, type: 3}
   m_Color: {r: 0.97735846, g: 0.97735846, b: 0.97735846, a: 1}
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a64c8664d795a046882fc6d15efbd27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColisionDamage
-  damage: 5
+  damage: 10
   animator: {fileID: 819506366474740379}
 --- !u!114 &3785565817761330966
 MonoBehaviour:

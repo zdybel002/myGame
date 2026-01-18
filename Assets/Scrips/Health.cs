@@ -5,6 +5,8 @@ public class Health : MonoBehaviour
 
     public int health;
 
+    public int CurrentHealth { get { return health; } }
+
     public void TakeHit(int damage)
     {
         health -= damage;
